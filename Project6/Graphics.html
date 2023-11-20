@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Rent A Pet-Graphics</title>
+<style type="text/css">
+    #thumbs, #image {
+        width: 700px;
+        border: solid 1px 000;
+        text-align: center;
+        margin: 0 auto 0 auto;
+        color: #000;
+        background: #eee;
+        padding: 5px;
+    }
+    #thumbs {
+        margin-top: 10px;
+    }
+    #thumbs img {
+        border: solid 1px #000;
+        margin: 5px;
+    }
+    #image{
+        height:400px;
+    }
+    .instructions{
+        font-style:italic;
+    }
+    </style>
+    <script type="text/javascript">
+        //Begin comment for older browsers//
+        var imgArray = new Array(
+        'Image1Lg.jpg',
+        'Image2Lg.jpg',
+        'Image3Lg.jpg',
+        'Image4Lg.jpg'
+        );
+        var titleArray = new Array(
+        'Two Hunting Dogs',
+        'Bird and Dog',
+        'Big Pig',
+        'Fluffy Cat'
+        );
+        var imgPath = "Images/Fullsize/";
+        function swapImage(imgID) {
+        var theImage = document.getElementById('theImage');
+        var textDiv = document.getElementById('bottomText');
+        var newImg;
+        var textTitle;
+        newImg = imgArray[imgID];
+        theImage.src = imgPath + newImg;
+        textTitle=titleArray[imgID];
+        textDiv.innerHTML = textTitle;
+        }
+        function preloadImages() {
+        for(var i = 0; i < imgArray.length; i++) {
+        var tmpImg = new Image;
+        tmpImg.src = imgPath + imgArray[i];
+        }
+        }
+        // End comment for older browsers -->
+        </script>
+</head>
+
+<body onload="preloadImages()">
+    <div>
+        <a href=""
+        onmouseover="document.getElementById('print').src='Images/Print2.jpg';"
+        onmouseout="document.getElementById('print').src='Images/Print1.jpg';">
+            <img src="Images/Print1.jpg" alt="Print Page" width="200" height="50"
+        id="print"></a>
+    </div>
+    <div>
+        <a href=""
+        onmouseover="document.getElementById('logo').src='Images/Logo2.jpg';"
+        onmouseout="document.getElementById('logo').src='Images/Logo1.jpg';">
+        <img src="Images/Logo1.jpg" alt="Logo" id="logo"></a>
+    </div>
+    <p class="instructions">
+        <div id="thumbs">
+        <img src="Images/Thumbnail/Image1Sm.jpg" alt="Hunting Dogs"
+        onmouseover="swapImage(0);" />
+        <img src="Images/Thumbnail/Image2Sm.jpg" alt="Bird Dog"
+        onmouseover="swapImage(1);" />
+        <img src="Images/Thumbnail/Image3Sm.jpg" alt="Pig"
+        onmouseover="swapImage(2);" />
+        <img src="Images/Thumbnail/Image4Sm.jpg" alt="Cat"
+        onmouseover="swapImage(3);" />
+        <br />
+        </div>
+        <div id="image">
+        <img id="theImage" src="Images/FullSize/Image1Lg.jpg" alt="Hunting Dogs" />
+        <h3 id="bottomText">Two Hunting Dogs</h3>
+        </div>
+
+</body>
+</html>
